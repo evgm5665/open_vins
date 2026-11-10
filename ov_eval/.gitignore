@@ -1,1 +1,6 @@
 data/*
+algorithms/
+truth/
+traj_estimate
+traj_groundtruth
+traj_timing

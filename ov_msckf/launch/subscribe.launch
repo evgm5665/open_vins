@@ -2,8 +2,8 @@
 
     <!-- what config we are going to run (should match folder name) -->
     <arg name="verbosity"   default="INFO" /> <!-- ALL, DEBUG, INFO, WARNING, ERROR, SILENT -->
-    <arg name="config"      default="euroc_mav" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
-    <arg name="config_path" default="$(find ov_msckf)/../config/$(arg config)/estimator_config.yaml" />
+    <arg name="config"      default="estimator_config" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
+    <arg name="config_path" default="/home/usl/Ovio_ws/src/vio_alg/config/openvins/x500_stereo_vio/estimator_config.yaml" />
 
     <!-- mono or stereo and what ros bag to play -->
     <arg name="max_cameras" default="2" />
@@ -12,19 +12,19 @@
     <arg name="bag_rate"    default="1" />
     <arg name="dataset"     default="V1_01_easy" /> <!-- V1_01_easy, V1_02_medium, V2_02_medium -->
     <arg name="dobag"       default="false" /> <!-- if we should play back the bag -->
-    <arg name="bag"         default="/media/patrick/RPNG\ FLASH\ 3/$(arg config)/$(arg dataset).bag" />
+    <arg name="bag"         default="~/Ovio_ws/bags/baylands_openvins_changed_pose_second_run.bag" />
 <!--    <arg name="bag"         default="/home/patrick/datasets/$(arg config)/$(arg dataset).bag" />-->
 <!--    <arg name="bag"         default="/datasets/$(arg config)/$(arg dataset).bag" />-->
 
     <!-- saving trajectory path and timing information -->
-    <arg name="dosave"      default="false" />
-    <arg name="dotime"      default="false" />
-    <arg name="path_est"    default="/tmp/traj_estimate.txt" />
-    <arg name="path_time"   default="/tmp/traj_timing.txt" />
+    <arg name="dosave"      default="true" />
+    <arg name="dotime"      default="true" />
+    <arg name="path_est"    default="/home/usl/Ovio_ws/src/vio_alg/Flight_log/OpenVIns/traj_est.txt" />
+    <arg name="path_time"   default="/home/usl/Ovio_ws/src/vio_alg/Flight_log/OpenVIns/traj_time.txt" />
 
     <!-- if we should viz the groundtruth -->
-    <arg name="dolivetraj"  default="false" />
-    <arg name="path_gt"     default="$(find ov_data)/$(arg config)/$(arg dataset).txt" />
+    <arg name="dolivetraj"  default="true" />
+    <arg name="path_gt"     default="/home/usl/Ovio_ws/src/vio_alg/Flight_log/GT/traj_groundtruth.txt" />
 
     <!-- MASTER NODE! -->
 <!--    <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" output="screen" clear_params="true" required="true" launch-prefix="gdb -ex run &#45;&#45;args">-->

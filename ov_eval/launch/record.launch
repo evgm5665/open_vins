@@ -7,7 +7,7 @@
 
 
     <!-- where to save the recorded poses -->
-    <arg name="path_save"   default="/home/patrick/workspace/catkin_ws_init/src/open_vins/ov_data/" />
+    <arg name="path_save"   default="/home/usl/Ovio_ws/src/vio_alg/Bag_log/OpenVinsEstLogs/data_from_eval/" />
 
 
     <!-- record the trajectory -->

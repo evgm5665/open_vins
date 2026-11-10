@@ -3,6 +3,7 @@ from launch.actions import DeclareLaunchArgument, LogInfo, OpaqueFunction
 from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, TextSubstitution
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory, get_package_prefix
 import os
 import sys
@@ -44,6 +45,12 @@ launch_args = [
         name="save_total_state",
         default_value="false",
         description="record the total state with calibration and features to a txt file",
+    ),
+
+    DeclareLaunchArgument(
+    name="use_sim_time",
+    default_value="true",
+    description="Use the Gazebo /clock topic",
     )
 ]
 
@@ -86,6 +93,7 @@ def launch_setup(context):
             {"max_cameras": LaunchConfiguration("max_cameras")},
             {"save_total_state": LaunchConfiguration("save_total_state")},
             {"config_path": config_path},
+            {"use_sim_time": ParameterValue(LaunchConfiguration("use_sim_time"),value_type=bool,)},
         ],
     )
 
